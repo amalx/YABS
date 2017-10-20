@@ -1,0 +1,126 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="saveBook()"
+              [formGroup]="bookForm">
+            <fieldset>
+                <div class="form-group"
+                     [ngClass]="{'has-error': displayMessage.bookName }">
+                    <label class="col-md-2 control-label" for="bookNameId">Book Name</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="bookNameId"
+                               type="text"
+                               placeholder="Name (required)"
+                               formControlName="name" />
+                        <span class="help-block" *ngIf="displayMessage.name">
+                            {{displayMessage.name}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     [ngClass]="{'has-error': displayMessage.price}">
+                    <label class="col-md-2 control-label" for="priceId">Price </label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="priceId"
+                               type="text"
+                               placeholder="Price (required)"
+                               formControlName="price" />
+                        <span class="help-block" *ngIf="displayMessage.price">
+                            {{displayMessage.price}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.author}">
+                    <label class="col-md-2 control-label" for="authorId">Author </label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="authorId"
+                               type="text"
+                               placeholder="Author"
+                               formControlName="author" />
+                        <span class="help-block" *ngIf="displayMessage.author">
+                            {{displayMessage.author}}
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.category}">
+                    <label class="col-md-2 control-label" for="authorId">Category </label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="categoryId"
+                               type="text"
+                               placeholder="Category"
+                               formControlName="category" />
+                        <span class="help-block" *ngIf="displayMessage.category">
+                            {{displayMessage.category}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.quantity}">
+                    <label class="col-md-2 control-label" for="quantityId"> quantity </label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="quantityId"
+                               type="text"
+                               placeholder="Quantity"
+                               formControlName="quantity" />
+                        <span class="help-block" *ngIf="displayMessage.quantity">
+                            {{displayMessage.quantity}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.photo}">
+                    <label class="col-md-2 control-label" for="photoId"> Photo </label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="photoId"
+                               type="text"
+                               placeholder="Photo"
+                               formControlName="photo" />
+                        <span class="help-block" *ngIf="displayMessage.photo">
+                            {{displayMessage.photo}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    style="width:80px;margin-right:10px"
+                                    [disabled]='!bookForm.valid'>
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               [routerLink]="['/books']">
+                                Cancel
+                            </a>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               (click)="deleteBook()">
+                                Delete
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+</div>

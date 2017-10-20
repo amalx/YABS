@@ -1,0 +1,139 @@
+﻿<div style="font-family:Calibri;font-size:20px">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Book Store</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a [routerLink]="['/shop',' ']">Shop <span class="sr-only">(current)</span></a></li>
+                    <li><a [routerLink]="['/cart']">Cart</a></li>
+
+
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li *ngIf="auth"><a (click)="logout()" [routerLink]="['/shop',' ']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li *ngIf="!auth"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li *ngIf="!auth"><a [routerLink]="['/register']">Register</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    </div>
+ <div class="container" style="font-family:Calibri">
+    <a *ngIf="bool" [routerLink]="['/dashboard']">
+        <div style="background-color:darkslategrey;position:fixed;right:0px;top:50px;width:100px;
+height:50px;color:white;padding:10px;border-bottom-left-radius:10px;border-top-left-radius:10px;
+padding-right:0px;line-height:2em;">
+            <span class="glyphicon glyphicon-log-in"></span>  <strong> Dashboard </strong>
+        </div>
+    </a>
+    <div style="text-align:right;margin-bottom:10px">
+
+        <h3>{{ totalPrice| currency:'USD':true:'1.2-2'}}  ( {{ totalNumber }} Books)  <a [routerLink]="['/cart']"><img src="/app/cart.png" /></a></h3>
+       
+
+        <button class='btn btn-danger'
+                (click)='EmptyCart()'>
+            <span class="glyphicon glyphicon-shopping-cart"></span> Empty Cart
+        </button>
+
+
+        
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class='panel panel-primary'>
+
+            <div class='panel-body'>
+                <div class='row'>
+                    <div class='col-md-3'><strong>Search here for anything ...</strong></div>
+                    <div class='col-md-3'>
+                        <input class="form-control" type='text' [(ngModel)]='listFilter' />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <p class="lead">Category</p>
+
+            <div class="list-group">
+                <div class="list-group-item"><a [routerLink]="['/shop','sciences']">Science</a></div>
+                <div class="list-group-item"><a [routerLink]="['/shop','arts']">Arts</a></div>
+                <div class="list-group-item"><a [routerLink]="['/shop','romance']">Romance</a></div>
+                <div class="list-group-item"><a [routerLink]="['/shop','history']">History</a></div>
+                <div class="list-group-item"><a [routerLink]="['/shop','philosophy']">Philosophy</a></div>
+                <div class="list-group-item"><a [routerLink]="['/shop','fiction']">Fiction</a></div>
+            </div>
+        </div>
+
+
+        <div class="col-md-9">
+
+
+
+            <div class="row" *ngIf='books && books.length'>
+                <div class='table-responsive'>
+
+
+
+
+                    <div class="col-sm-6 col-lg-6 col-md-6" style="width:250px;" *ngFor='let book of books | bookFilter : listFilter'>
+
+                        <div class="thumbnail">
+                            <img [src]='book.photo' alt="photo non valide "
+                                 [style.width.px]='200'
+                                 [style.margin.px]='imageMargin'
+                                 [style.height.px]='200'>
+                            <div class="caption" style="height:200px">
+                                <a [routerLink]="['/book',book.BookId]">
+                                    <h4>{{book.name}}</h4>
+                                </a>
+                                <h4 class="pull-right"><strong>{{book.price  | currency:'USD':true:'1.2-2'}}</strong></h4>
+
+
+                                <h5 align="left"><strong>{{book.author}}</strong></h5>
+                                <h5 align="left">{{book.category}}</h5>
+                                <h5 align="left">Quantity available :</h5>
+
+                                <h5 align="left"><strong>{{book.quantity}}</strong></h5>
+
+                                <select name="quantity" [(ngModel)]='quantity' class="pull-right">
+                                    <option value="1" selected>1
+                                    <option value="2">2
+                                    <option value="3">3
+                                    <option value="4">4
+                                    <option value="5">5
+                                </select>
+
+                                <button class='btn btn-primary'
+                                        (click)='SelectedBook(book)'>
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+
+
+
+
+

@@ -1,0 +1,77 @@
+﻿<a *ngIf="bool" [routerLink]="['/dashboard']">
+    <div style="background-color:darkslategrey;position:fixed;right:0px;top:50px;width:100px;
+height:50px;color:white;padding:10px;border-bottom-left-radius:10px;border-top-left-radius:10px;
+padding-right:0px;line-height:2em;">
+        <span class="glyphicon glyphicon-log-in"></span>  <strong> Dashboard </strong>
+    </div>
+</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor='let book of cart'>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="{{ book.photo }}" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">{{ book.name}}</a></h4>
+                                    <h5 class="media-heading"> by <a href="#">{{ book.author}}</a></h5>
+                                   
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{ book.quantity}}</strong></td>
+                       <td class="col-sm-1 col-md-1 text-center"><strong>{{ book.price | currency:'USD':true:'1.2-2'}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{ book.price * +book.quantity | currency:'USD':true:'1.2-2'}}</strong></td> 
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger" (click)='Remove(book)' >
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Total Books</h5></td>
+                        <td class="text-right"><h5><strong>{{ totalNumber}}</strong></h5></td>
+                    </tr>
+                   
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>{{ totalPrice | currency:'USD':true:'1.2-2'}}</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <button type="button" class="btn btn-default" (click)="onBack()">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">
+                                Checkout <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

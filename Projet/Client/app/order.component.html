@@ -1,0 +1,58 @@
+﻿<body>
+    <div class="container">
+
+        <form class="form-signin" role="form" (submit)="Submit($event, country.value, firstName.value, lastName.value,
+              address.value,city.value,state.value,postalCode.value,phoneNumber.value,email.value,
+              cardType.value,creditCardNumber.value)">
+            <h2 class="form-signin-heading">Send Order to buy :</h2>
+            <br />
+            <label for="country"> Country</label>
+            <br />
+            <input type="text" #country id="country" class="form-control" placeholder="Country" required autofocus>
+            <br />
+            <label for="firstName">First Name</label>
+            <br />
+            <input type="text" #firstName id="firstName" class="form-control" placeholder="First Name" required>
+          
+            <label for="lastName"> Last Name</label>
+            <br />
+            <input type="text" #country id="lastName" class="form-control" placeholder="Last Name" required autofocus>
+            <br />
+            <label for="address">Address</label>
+            <br />
+            <input type="text" #address id="address" class="form-control" placeholder="Address" required>
+
+
+            <label for="city"> City</label>
+            <br />
+            <input type="text" #city id="city" class="form-control" placeholder="City" required autofocus>
+            <br />
+            <label for="state">State</label>
+            <br />
+            <input type="text" #state id="state" class="form-control" placeholder="State" required>
+
+            <label for="postalCode"> Postal Code</label>
+            <br />
+            <input type="text" #country id="postalCode" class="form-control" placeholder="Postal Code" required autofocus>
+            <br />
+            <label for="phoneNumber">Phone number</label>
+            <br />
+            <input type="text" #phoneNumber id="phoneNumber" class="form-control" placeholder="Phone Number" required>
+
+            <label for="email"> Email</label>
+            <br />
+            <input type="text" #email id="email" class="form-control" placeholder="Email" required autofocus>
+            <br />
+            <label for="cardType">Card Type</label>
+            <br />
+            <input type="text" #cardType id="cardType" class="form-control" placeholder="Card Type" required>
+
+            <label for="creditCardNumber">Credit Card Number</label>
+            <br />
+            <input type="text" #cardType id="creditCardNumber" class="form-control" placeholder="Credit Card Number" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Send Order </button>
+        </form>
+
+    </div> <!-- /container -->
+</body>

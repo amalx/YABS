@@ -1,0 +1,76 @@
+﻿.menu-vertical { font-family : "Trebuchet MS", Helvetica, sans-serif ;
+                 font-size : 20px ;
+}
+#page {
+    display :flex;
+     flex-wrap: wrap;
+}
+#cat  {
+    color :  #337AB7;
+   
+}
+.menu-vertical ul {
+    width : 300px ;
+}
+.menu-vertical ul li {
+    border-bottom : 2px solid #808080 ;
+    color :darkgray;
+}
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+tr{
+      
+}
+
+.thumbnail {
+    padding: 0;
+  
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
