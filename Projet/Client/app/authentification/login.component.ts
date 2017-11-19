@@ -50,7 +50,7 @@ export class LoginComponent {
             }
         );
     
- if ( username == "sirine@gmail.com")
+ if ( username == "amal@gmail.com")
 
  { localStorage.setItem('dashboard', 'true'); }
 else localStorage.setItem('dashboard', 'false'); 
